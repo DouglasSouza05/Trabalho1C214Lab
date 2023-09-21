@@ -1,0 +1,164 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Raleway", sans-serif;
+}
+
+/* Estilizando o Body */
+body {
+  /* Defini a Altura do elemento body */
+  height: 54vi;
+  background: linear-gradient(90deg, rgba(215, 43, 158) 0%, rgba(212, 59, 43));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-weight: 550 !important;
+  text-align: center; /* Alinhamento de texto (centralizado) */
+}
+
+#form {
+  display: flex;
+  gap: 2rem;
+}
+
+/* CSS */
+.new-task-input {
+  width: 10rem; /* Defina a largura desejada para o campo de entrada */
+}
+
+/* Estilizando o Container. Obs: "container" é o nome usado no codigo HTML */
+.container {
+  border: 3px outset purple;
+  padding: 40px 20px;
+  width: 40%;
+  min-width: 500px;
+  border-radius: 10px;
+}
+
+/* Primeiro container -> Input */
+.new-task-container {
+  background-color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+}
+
+/* Container do "Add the Task Here" */
+/* Poderia ser usado .new-task-input {} */
+.new-task-input {
+  flex: 3;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* Foco do Container do "Add the Task Here" quando há o click */
+.new-task-input:focus {
+  outline: none;
+  border-color: green;
+}
+
+.new-task-input::placeholder {
+  color: green;
+  font-weight: 500;
+}
+
+/* Button "Add" do Input */
+.new-task-button {
+  flex: 1;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  font-weight: 500;
+  height: 100%;
+  background-color: green;
+  color: white;
+  padding: 12px;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+/* Container em que ficará as tasks criadas */
+.task-container {
+  background-color: white;
+  padding: 30px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px, rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+/* Texto do parágrafo */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+  margin-top: 6px;
+  color: rgba(215, 43, 158);
+}
+
+/* Estilizando o delete button */
+.task-item i {
+  background-color: green;
+  color: white;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Fazendo mesma coisa o ".task-item i" */
+/* .task-item i:hover {
+  cursor: pointer;
+} */
+
+.task-on {
+  cursor: pointer;
+}
+
+/* Estilizando o taskContent */
+.task-on::before {
+  content: "\25CF";
+  display: inline-block;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* Utilities */
+
+/* Usando !important para dar prioridade a regra */
+.error {
+  border: 1px solid red !important;
+}
+
+/* Fazendo com que o placeholder também fique vermelho caso aconteça erro na validação */
+.error::placeholder {
+  color: red;
+}
+
+/* Personalizando classe completed  */
+.completed {
+  text-decoration: line-through;
+}
+
+/* .completed::before {
+  content: "\2705";
+  display: inline-block;
+  margin-right: 5px;
+} */
+
+/* Personalizando ícone para tarefa concluída */
+.completed::before {
+  content: "\25CF";
+  display: inline-block;
+  margin-right: 5px;
+  color: green;
+}
