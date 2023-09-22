@@ -1,21 +1,24 @@
 ///<reference types='cypress'/>
 
 describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
-  it.skip('Caso de teste: Adicionar tarefa', () => {
+  it('Caso de teste: Adicionar tarefa', () => {
     accessSite();
     var add_task = createTask();
     addTask(add_task);
     cy.get('.task-on').should('have.text', add_task);
+    cy.wait(1000);
   })
 
-  it.skip('Caso de test: Deletar tarefa', () => {
+  it('Caso de test: Deletar tarefa', () => {
     accessSite();
-    var task_delete = addTask();
+    var task_delete = createTask();
+    addTask(task_delete);
     cy.get('.fa-solid').click();
     cy.get('.task-container').should('not.contain', task_delete);
+    cy.wait(1000);
   })
 
-  it.skip('Caso de teste: Adicionar mais de uma tarefa', () => {
+  it('Caso de teste: Adicionar mais de uma tarefa', () => {
     accessSite();
     var tasks = addTasks();
     cy.get(':nth-child(1) > .task-on').should('have.text', tasks[0]);
@@ -23,6 +26,7 @@ describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
     cy.get(':nth-child(3) > .task-on').should('have.text', tasks[2]);
     cy.get(':nth-child(4) > .task-on').should('have.text', tasks[3]);
     cy.get(':nth-child(5) > .task-on').should('have.text', tasks[4]);
+    cy.wait(1000);
   })
 
   it('Caso de teste: Marcar a tarefa como feita', () => {
@@ -33,6 +37,7 @@ describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
     cy.get('.task-on').click();
     cy.wait(500);
     cy.get('.task-on').should('contains.css','text-decoration', 'line-through solid rgb(215, 43, 158)');
+    cy.wait(1000);
   })
 })
 
