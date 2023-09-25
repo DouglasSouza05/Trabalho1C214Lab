@@ -2,7 +2,8 @@ import ToDoList from "./components/ToDoList";
 
 function App() {
   return (
-    <div>
+    <div className="app">
+      <h1>Lista de Tarefas</h1>
       <ToDoList />
     </div>
   );

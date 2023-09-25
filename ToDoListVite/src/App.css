@@ -16,13 +16,8 @@ body {
 }
 
 h1 {
-  font-weight: 550 !important;
+  font-weight: 500 !important;
   text-align: center; /* Alinhamento de texto (centralizado) */
-}
-
-#form {
-  display: flex;
-  gap: 2rem;
 }
 
 /* CSS */
@@ -115,11 +110,6 @@ h1 {
   cursor: pointer;
 }
 
-/* Fazendo mesma coisa o ".task-item i" */
-/* .task-item i:hover {
-  cursor: pointer;
-} */
-
 .task-on {
   cursor: pointer;
 }
@@ -144,21 +134,37 @@ h1 {
   color: red;
 }
 
-/* Personalizando classe completed  */
-.completed {
-  text-decoration: line-through;
+/* Ajustando o alinhamento vertical de .task-on e .task-status */
+.task-on,
+.task-status {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
 }
 
-/* .completed::before {
-  content: "\2705";
-  display: inline-block;
-  margin-right: 5px;
-} */
+/* Adicione margem ou espaço entre o texto da tarefa e o status, se necessário */
+.task-status {
+  margin-left: 5px; /* Você pode ajustar a margem conforme necessário */
+}
 
-/* Personalizando ícone para tarefa concluída */
-.completed::before {
-  content: "\25CF";
-  display: inline-block;
-  margin-right: 5px;
-  color: green;
+/* Estilizando o texto "To do" */
+.task-status {
+  font-size: 1.1rem;
+  color: red; /* Cor personalizada para "To do" */
+}
+
+/* Estilizando o texto "Completed" */
+.task-status.completed {
+  font-size: 1.1rem;
+  color: green; /* Cor personalizada para "Completed" */
+}
+
+.task-item {
+  color: red;
+  font-size: 1.2rem;
+}
+
+.completed-task {
+  color: green; /* Cor personalizada para tarefas concluídas */
 }
