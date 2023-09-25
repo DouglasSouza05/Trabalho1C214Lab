@@ -16,7 +16,7 @@ function ToDoList() {
       if (index === clickedIndex) {
         return {
           ...task,
-          status: task.status === "A Fazer" ? "Feito" : "A Fazer",
+          status: task.status === "A Fazer" ? "Concluído" : "A Fazer",
         };
       }
       return task;
@@ -77,7 +77,7 @@ function ToDoList() {
             <div className="task-item" key={index}>
               <p
                 className={`task-on ${
-                  task.status === "Feito" ? "completed-task" : ""
+                  task.status === "Concluído" ? "completed-task" : ""
                 }`}
                 onClick={() => handleClick(index)}
               >
@@ -86,7 +86,7 @@ function ToDoList() {
               {/* <span className="task-status">{task.status}</span> */}
               <span
                 className={`task-status ${
-                  task.status === "Feito" ? "completed" : ""
+                  task.status === "Concluído" ? "completed" : ""
                 }`}
               >
                 {task.status}
