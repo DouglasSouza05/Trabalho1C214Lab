@@ -5,16 +5,17 @@ function ToDoList() {
   const [tasks, setTasks] = useState([]);
   const [inputText, setInputText] = useState("");
 
-  // Função para validar se o texto de entrada não está em branco
   const inputValidation = (input) => {
     return input.trim().length > 0;
   };
 
-  // Função para lidar com o clique em uma tarefa, alternando entre "A Fazer" e "Feito"
   const handleClick = (clickedIndex) => {
+    // Mapeia todas as tasks
     const updatedTasks = tasks.map((task, index) => {
+      // Dentro do bloco if é criado um novo objeto que representa o atual
       if (index === clickedIndex) {
         return {
+          // "...task" utiliza o operador de propagação para criar uma cópia, mantendo todas as propriedades do original, mudando somente o status
           ...task,
           status: task.status === "A Fazer" ? "Concluído" : "A Fazer",
         };
@@ -22,12 +23,11 @@ function ToDoList() {
       return task;
     });
 
-    // Atualiza o estado das tarefas com as tarefas atualizadas
     setTasks(updatedTasks);
   };
 
-  // Função para lidar com a exclusão de uma tarefa
   const handleDeleteTask = (taskToDelete) => {
+    // Usando .filter() para pegar todas as tasks do array "tasks", retornando todas aquelas que são diferentes da "taskToDelete"
     const updatedTasks = tasks.filter((task) => task !== taskToDelete);
 
     // Atualiza o estado das tarefas com as tarefas atualizadas (sem a tarefa excluída)
@@ -42,11 +42,11 @@ function ToDoList() {
     }
 
     // Cria uma nova tarefa com o texto de entrada e status "A Fazer"
-    const newTask = { description: inputText, status: "A Fazer" };
-    // Atualiza o estado das tarefas adicionando a nova tarefa
+    const newTask = { input: inputText, status: "A Fazer" };
+    // Atualiza o estado das tarefas adicionando a nova tarefa. A variável recebe um novo array, criado espalhando os elementos do array original e adicionando a "newTask" ao final
     const updatedTasks = [...tasks, newTask];
     setTasks(updatedTasks);
-    // Limpa o campo de entrada
+
     setInputText("");
   };
 
@@ -59,7 +59,7 @@ function ToDoList() {
               type="text"
               className="new-task-input"
               placeholder="Adicione sua tarefa aqui."
-              required
+              // "value" determina o valor atual da entrada, sendo controlada pela variável inputText
               value={inputText}
               onChange={(e) => setInputText(e.target.value)}
             />
@@ -73,25 +73,31 @@ function ToDoList() {
           </div>
         </form>
         <div className="task-container">
+          {/* Expressão JSX que mapeia as tarefas no estado "tasks" e cria elementos HTML dinaminamente */}
           {tasks.map((task, index) => (
+            // Para cada tarefa cria-se uma nova div com uma key
             <div className="task-item" key={index}>
               <p
+                // Aplica a clase "completed-task" caso o status seja "Concluído"
                 className={`task-on ${
                   task.status === "Concluído" ? "completed-task" : ""
                 }`}
+                // A tarefa ao ser clickada chama a função passando o seu index
                 onClick={() => handleClick(index)}
               >
-                {task.description}
+                {task.input}
               </p>
-              {/* <span className="task-status">{task.status}</span> */}
+              {/* Span usado para mostrar o status da tarefa */}
               <span
                 className={`task-status ${
+                  // A classe CSS "completed" será aplicada se o task.status for igual a "Concluído". Caso não seja, mantém sem a classe
                   task.status === "Concluído" ? "completed" : ""
                 }`}
               >
                 {task.status}
               </span>
               <i
+                // tag <i> que exibe o ícone de lixeira e chama função quando é clicada
                 className="fa-solid fa-trash"
                 onClick={() => handleDeleteTask(task)}
               ></i>
