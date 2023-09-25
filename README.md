@@ -2,6 +2,11 @@
 
 Este é um aplicativo simples de lista de tarefas (To-Do List) construído em React. Ele permite adicionar, marcar como concluídas e excluir tarefas da lista.
 
+Integrantes:
+
+- Douglas Brandão de Souza. Matrícula 1730. GEC
+- Eduardo Costa Resende. Matrícula 200. GES
+
 ## Como Funciona
 
 A aplicação possui três principais recursos:
@@ -49,11 +54,3 @@ Você pode personalizar o aplicativo de acordo com suas preferências:
 - **Fontes**: O aplicativo usa a fonte "Raleway" do Google Fonts. Você pode alterar a fonte editando o arquivo HTML (`index.html`) e o arquivo CSS (`app.css`).
 
 - **Estilos de Texto**: Você pode personalizar o estilo do texto para as tarefas "To do" e "Completed" no arquivo `app.css`.
-
-## Contribuindo
-
-Sinta-se à vontade para contribuir para este projeto, abrindo issues ou enviando pull requests.
-
-## Licença
-
-Este projeto está licenciado sob a [MIT License](LICENSE).
