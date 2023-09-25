@@ -37,7 +37,6 @@ describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
     cy.get('.task-on').click();
     cy.wait(500);
     cy.get('.task-status').should('have.text', 'Concluído');
-    // cy.get('.task-on').should('contains.css','text-decoration', 'line-through solid rgb(215, 43, 158)');
     cy.wait(1000);
   })
 
