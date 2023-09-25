@@ -49,7 +49,6 @@ describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
     cy.get('.task-status').should('have.text', 'A Fazer');
   })
 
-
 })
 
 function accessSite() {
