@@ -36,23 +36,34 @@ describe('Cenario de Teste: Testar funcionalidades do site de tarefas', () => {
     cy.wait(1000);
     cy.get('.task-on').click();
     cy.wait(500);
-    cy.get('.task-on').should('contains.css','text-decoration', 'line-through solid rgb(215, 43, 158)');
+    cy.get('.task-status').should('have.text', 'Concluído');
+    // cy.get('.task-on').should('contains.css','text-decoration', 'line-through solid rgb(215, 43, 158)');
     cy.wait(1000);
   })
+
+  it('Caso de teste: Verificar se a tarefa foi criada como "A Fazer" primeiro', () => {
+    accessSite();
+    var task = createTask();
+    addTask(task);
+    cy.wait(1000);
+    cy.get('.task-status').should('have.text', 'A Fazer');
+  })
+
+
 })
 
-function accessSite(){
+function accessSite() {
   cy.visit('http://localhost:5173');
   cy.wait(500);
 }
 
-function addTask(task){
+function addTask(task) {
   cy.get('.new-task-input').click().type(task);
   cy.wait(500);
   cy.get('.new-task-button').click().click();
 }
 
-function createTask(){
+function createTask() {
   let hour = new Date().getHours().toString();
   let minutes = new Date().getMinutes().toString();
   let seconds = new Date().getSeconds().toString();
@@ -60,11 +71,11 @@ function createTask(){
   return task;
 }
 
-function addTasks(){
+function addTasks() {
   var task_time = [];
-  for (let i = 0; i < 5; i++){
+  for (let i = 0; i < 5; i++) {
     var time = setInterval(createTask, 1000);
-    task_time.push(time + "_tarefa"); 
+    task_time.push(time + "_tarefa");
     addTask(task_time[i]);
     cy.wait(1000);
   }
