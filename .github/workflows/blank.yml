@@ -18,28 +18,10 @@ jobs:
           npm ci
           npm run build
 
-      - name: Salvando build como artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifact
-          path: build
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Baixando build artifact
-        uses: actions/download-artifact@v2
-        with:
-          run: |
-            ls
-          name: build-artifact
-          path: build
-
       - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
         run: |
+          cd ..
           cd Cypress
           npm ci
           ./node_modules/.bin/cypress run
+
