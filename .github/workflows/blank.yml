@@ -20,7 +20,6 @@ jobs:
 
       - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
         run: |
-          cd ..
           cd Cypress
           npm ci
           ./node_modules/.bin/cypress run
