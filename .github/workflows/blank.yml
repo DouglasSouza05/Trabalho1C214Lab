@@ -25,6 +25,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
         run: |
-          cd cypress
+          cd Cypress
           npm ci
           ./node_modules/.bin/cypress run
