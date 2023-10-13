@@ -30,6 +30,5 @@ jobs:
         run: | 
           cd ToDoListVite
           ls
-          npm install
-          npm run dev
-          
+          npm ci
+          npm run build
