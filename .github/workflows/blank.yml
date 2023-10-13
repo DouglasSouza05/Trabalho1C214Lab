@@ -18,15 +18,13 @@ jobs:
           npm ci
           npm run build
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   needs: build
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
-  #       run: |
-  #         cd ToDoListVite
-  #         npm ci
-  #         # Aqui você pode rodar seus testes Cypress
-  #         # Substitua o comando abaixo pelo comando real para rodar seus testes
-  #         npm run cypress:run
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
+        run: |
+          cd cypress
+          npm ci
+          ./node_modules/.bin/cypress run
