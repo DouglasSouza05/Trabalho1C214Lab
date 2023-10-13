@@ -33,8 +33,10 @@ jobs:
       - name: Baixando build artifact
         uses: actions/download-artifact@v2
         with:
+          run: |
+            ls
           name: build-artifact
-          path: ToDoListVite/build
+          path: build
 
       - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
         run: |
