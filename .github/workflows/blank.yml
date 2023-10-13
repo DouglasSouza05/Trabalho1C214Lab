@@ -17,6 +17,7 @@ jobs:
           cd ToDoListVite
           npm ci
           npm run build
+          npm run dev
 
       - name: Navegando até o diretório ToDoListVite para rodar testes Cypress
         run: |
